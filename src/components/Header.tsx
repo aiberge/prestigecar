@@ -10,7 +10,7 @@ const navItems = [
   { name: 'Contact', href: 'contact' }
 ];
 
-const PHONE_NUMBER = '06 00 46 42 36';
+const PHONE_NUMBER = '0707096730';
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);

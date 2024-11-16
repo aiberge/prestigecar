@@ -39,7 +39,7 @@ const cars = [
   },
   {
     id: 6,
-    name: 'Peugeot C-Elysée',
+    name: 'Citroen C-Elysée',
     image: '/Clise.jpg',
     price: '399 DH/jour',
     features: ['Boîte manuelle', 'Essence', '5 places confortables', 'Coffre 506L'],

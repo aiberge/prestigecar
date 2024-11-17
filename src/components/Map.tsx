@@ -1,65 +1,78 @@
-import { MapPin, Phone, Mail, MessageCircle } from 'lucide-react';
-import AnimatedSection from './AnimatedSection';
-import { motion } from 'framer-motion';
+import { Phone, Mail, MapPin } from "lucide-react";
+import { motion } from "framer-motion";
 
 export default function Map() {
   return (
-    <section id="contact" className="relative h-[600px] overflow-hidden">
-      <div className="absolute inset-0 w-full h-full">
-        <iframe 
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13123.921463974175!2d-1.9370794128418076!3d34.680445000000006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd7865ee046f9a93%3A0x2842aace537b7cd7!2sLocation%20de%20voiture%20Oujda%20Prestige!5e0!3m2!1sfr!2sma!4v1731680008963!5m2!1sfr!2sma"
-          className="w-full h-full"
-          style={{ border: 0 }}
-          allowFullScreen
-          loading="lazy"
-          referrerPolicy="no-referrer-when-downgrade"
-        />
-      </div>
+    <div className="container mx-auto px-4 py-16">
+      <h2 className="text-3xl font-bold text-center mb-12 text-[#013298]">
+        Contact
+      </h2>
       
-      <AnimatedSection className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-md px-4">
+      <div className="flex flex-col lg:flex-row gap-8">
+        {/* Map - 70% width on desktop */}
         <motion.div 
-          whileHover={{ scale: 1.02 }}
-          className="bg-white/95 backdrop-blur-sm p-8 rounded-2xl shadow-xl"
+          initial={{ opacity: 0, x: -20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5 }}
+          className="lg:w-[70%] h-[400px] lg:h-[500px] rounded-xl overflow-hidden shadow-lg"
         >
-          <h3 className="text-2xl font-bold text-[#013298] mb-6">Contactez-nous</h3>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3280.980367070724!2d-1.9206052880305822!3d34.68044497281395!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd7865ee046f9a93%3A0x2842aace537b7cd7!2sLocation%20de%20voiture%20Oujda%20Prestige!5e0!3m2!1sfr!2sma!4v1731877429885!5m2!1sfr!2sma"
+            width="100%"
+            height="100%"
+            style={{ border: 0 }}
+            allowFullScreen
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </motion.div>
+
+        {/* Contact Card - 30% width on desktop */}
+        <motion.div 
+          initial={{ opacity: 0, x: 20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5 }}
+          className="lg:w-[30%] bg-white rounded-xl shadow-lg p-6 h-fit"
+        >
+          <h3 className="text-2xl font-semibold text-[#013298] mb-6">
+            Contactez-nous
+          </h3>
           
           <div className="space-y-6">
-            <motion.div 
-              whileHover={{ x: 5 }}
-              className="flex items-center space-x-4"
-            >
-              <MapPin className="text-[#048FD7] flex-shrink-0" />
-              <p>Oujda, Maroc</p>
-            </motion.div>
-            <motion.a 
-              href="tel:707096730"
-              whileHover={{ x: 5 }}
-              className="flex items-center space-x-4 hover:text-[#048FD7] transition-colors"
-            >
-              <Phone className="text-[#048FD7] flex-shrink-0" />
-              <p>07 07 09 67 30</p>
-            </motion.a>
-            <motion.a 
-              href="mailto:contact@prestigecar.ma"
-              whileHover={{ x: 5 }}
-              className="flex items-center space-x-4 hover:text-[#048FD7] transition-colors"
-            >
-              <Mail className="text-[#048FD7] flex-shrink-0" />
-              <p>contact@prestigecar.ma</p>
-            </motion.a>
-            <motion.a
-              href="https://wa.me/212707096730 "
-              target="_blank"
-              rel="noopener noreferrer"
-              whileHover={{ scale: 1.02 }}
-              className="flex items-center justify-center space-x-2 bg-[#25D366] text-white p-4 rounded-lg mt-4 hover:bg-[#128C7E] transition-colors"
-            >
-              <MessageCircle className="h-5 w-5" />
-              <span>Contactez-nous sur WhatsApp</span>
-            </motion.a>
+            <div className="flex items-start space-x-4">
+              <div className="bg-[#013298]/10 p-3 rounded-full">
+                <Phone className="h-6 w-6 text-[#013298]" />
+              </div>
+              <div>
+                <h4 className="font-medium text-gray-900">Téléphone</h4>
+                <p className="text-gray-600">+212-707 096 730</p>
+              </div>
+            </div>
+
+            <div className="flex items-start space-x-4">
+              <div className="bg-[#013298]/10 p-3 rounded-full">
+                <Mail className="h-6 w-6 text-[#013298]" />
+              </div>
+              <div>
+                <h4 className="font-medium text-gray-900">Email</h4>
+                <p className="text-gray-600">contact@prestigecar.ma</p>
+              </div>
+            </div>
+
+            <div className="flex items-start space-x-4">
+              <div className="bg-[#013298]/10 p-3 rounded-full">
+                <MapPin className="h-6 w-6 text-[#013298]" />
+              </div>
+              <div>
+                <h4 className="font-medium text-gray-900">Adresse</h4>
+                <p className="text-gray-600">
+                  Oujda, Maroc
+                </p>
+              </div>
+            </div>
           </div>
         </motion.div>
-      </AnimatedSection>
-    </section>
+      </div>
+    </div>
   );
 }
